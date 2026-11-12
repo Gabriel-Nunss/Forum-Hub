@@ -165,49 +165,49 @@ src/main/java/com/forumHub/ForumHub/
 │
 ├── ForumHubApplication.java
 │
-├── controller/                         → Rotas da API
-│   ├── AutenticacaoController.java     → POST /auth/login
-│   └── TopicoController.java           → CRUD /topicos
+├── controller/                         
+│   ├── AutenticacaoController.java     
+│   └── TopicoController.java           
 │
-├── domain/                             → Entidades JPA
+├── domain/                             
 │   ├── Curso.java
 │   ├── Perfil.java
 │   ├── Resposta.java
-│   ├── StatusTopico.java               → Enum: ABERTO, FECHADO, SOLUCIONADO
+│   ├── StatusTopico.java               
 │   ├── Topico.java
 │   └── Usuario.java
 │
-├── dto/                                → Objetos de transferência de dados
+├── dto/                                
 │   ├── autenticacao/
-│   │   ├── LoginRequestDTO.java        → Entrada: email + senha
-│   │   └── TokenResponseDTO.java       → Saída: token JWT
+│   │   ├── LoginRequestDTO.java        
+│   │   └── TokenResponseDTO.java       
 │   └── topico/
-│       ├── TopicoRequestDTO.java       → Entrada: criar tópico
-│       ├── TopicoResponseDTO.java      → Saída: dados do tópico
-│       └── TopicoUpdateDTO.java        → Entrada: atualizar tópico
+│       ├── TopicoRequestDTO.java       
+│       ├── TopicoResponseDTO.java      
+│       └── TopicoUpdateDTO.java        
 │
 ├── infra/
 │   ├── exception/
-│   │   └── TratamentoErros.java        → Respostas de erro padronizadas
+│   │   └── TratamentoErros.java        
 │   └── security/
-│       ├── SecurityConfig.java         → Configuração do Spring Security
-│       ├── SecurityFilter.java         → Filtro de validação do token JWT
-│       └── TokenService.java           → Geração e validação do JWT
+│       ├── SecurityConfig.java         
+│       ├── SecurityFilter.java         
+│       └── TokenService.java            
 │
-├── repository/                         → Acesso ao banco de dados
+├── repository/                         
 │   ├── CursoRepository.java
 │   ├── PerfilRepository.java
 │   ├── RespostaRepository.java
 │   ├── TopicoRepository.java
 │   └── UsuarioRepository.java
 │
-└── service/                            → Regras de negócio
-    ├── AutenticacaoService.java        → Carrega usuário para autenticação
-    └── TopicoService.java              → Lógica do CRUD de tópicos
+└── service/                            
+    ├── AutenticacaoService.java         
+    └── TopicoService.java               
 
 src/main/resources/
-├── application.properties             → Configurações da aplicação
-└── db/migration/                      → Scripts SQL (referência)
+├── application.properties             
+└── db/migration/                      
     ├── V1__create-table-perfil.sql
     ├── V2__create-table-usuarios.sql
     ├── V3__create-table-cursos.sql
@@ -224,30 +224,30 @@ src/main/resources/
                         │   Cliente   │
                         │  (Insomnia) │
                         └──────┬──────┘
-                               │ HTTP Request
+                               │ 
                                ▼
                     ┌──────────────────────┐
-                    │    SecurityFilter    │ ← Valida token JWT
+                    │    SecurityFilter    │ 
                     └──────────┬───────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │     Controller       │ ← Recebe e roteia a requisição
+                    │     Controller       │ 
                     └──────────┬───────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │      Service         │ ← Aplica regras de negócio
+                    │      Service         │ 
                     └──────────┬───────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │     Repository       │ ← Acessa o banco de dados
+                    │     Repository       │ 
                     └──────────┬───────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │    Banco MySQL       │ ← Persiste os dados
+                    │    Banco MySQL       │ 
                     └──────────────────────┘
 ```
 
